@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find skeleton_tracker)/launch/tracker.launch"/>
+    <node name="skeleton_tf_listener" pkg="raw_skeleton" type="skeleton_tf_listener" args="--test" output="screen" respawn="true" />
+    <node name="feature_extraction" pkg="raw_skeleton" type="feature_extraction.py" args="--test" output="screen" respawn="true" />
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find pincher_commander)/config/pincher2.rviz" />
+</launch>
